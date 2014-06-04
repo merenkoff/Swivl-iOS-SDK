@@ -17,6 +17,8 @@
 
 extern NSString* AVSandboxSwivlDockAttached;
 extern NSString* AVSandboxSwivlDockDetached;
+extern NSString* AVSandboxSwivlFirmwareChanged;
+extern NSString* AVSandboxMarkersStateChanged;
 extern NSString* AVSandboxMarkerBatteryLevelChanged;
 extern NSString* AVSandboxBaseBatteryLevelChanged;
 extern NSString* AVSandboxRecordingStoppedNotification; // Recording stopped for some reason (user, error, etc.)
@@ -37,10 +39,19 @@ extern NSString* AVSandboxPanningStateChangedNotification; // to update the app;
 #define UPDATELATER_MSG             @"Not Now"
 #define SHOWMEHOW_MSG               @"Instructions"
 
+// Marker update messages
+#define NEEDSMARKERUPDATE_TITLE         @"Required Primary Marker Firmware Update"
+
 // Audio connector configuration options
 #define AUDIO_CONNECTOR_APPLE       0x00
 #define AUDIO_CONNECTOR_LAPTOP      0x05
 #define AUDIO_CONNECTOR_SPECIAL     0x06
+
+typedef enum
+{
+    PRIMARY_MARKER_INDX = 0,
+    SECONDARY_MARKER_INDX = 1
+} MarkerIndex_t;
 
 
 @protocol SwivlBaseDelegate <NSObject>
@@ -72,7 +83,11 @@ extern NSString* AVSandboxPanningStateChangedNotification; // to update the app;
 @property (readonly) signed char baseBatteryLevel;
 @property (readonly) signed char markerBatteryLevel;
 @property (readonly) BOOL primaryMarkerConnected;
+@property (readonly) uint16_t primaryMarkerFwVersion;
+@property (readonly) int8_t primaryMarkerBatteryPercentage;
+
 @property (readonly) BOOL basePowerSupplyConnected;
+
 @property (readonly) NSString* dockFWVersion;
 @property BOOL verticalTrackingEnabled;
 
@@ -110,6 +125,8 @@ extern NSString* AVSandboxPanningStateChangedNotification; // to update the app;
 - (void) swivlSetAudioConnectorConfig: (UInt8)config;
 
 - (void) swivlSetCameraTriggerPortWithShutter: (BOOL)shutter andFocus:(BOOL)focus setOnOff:(BOOL)onoff timeout:(UInt32)timeout;
+- (BOOL) swivlCameraShutterState;
+- (BOOL) swivlCameraFocusState;
 
 - (void) swivlUsbResetWithConnectorSelect: (BOOL)useMicroUsb;
 
