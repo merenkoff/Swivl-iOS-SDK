@@ -15,3 +15,7 @@ NSString* AVSandboxTrackingStateChangedNotification = @"AVSandboxTrackingStateCh
 NSString* AVSandboxFastTrackingEnabledStateChangedNotification = @"AVSandboxFastTrackingEnabledStateChangedNotification";
 NSString* AVSandboxNavToFromRecordingScreen = @"AVSandboxNavToFromRecordingScreen";
 NSString* AVSandboxPanningStateChangedNotification = @"AVSandboxPanningStateChangedNotification";
+NSString* AVSandboxSwivlFirmwareChanged = @"AVSandboxSwivlFirmwareChanged";
+NSString* AVSandboxBaseBatteryLevelChanged = @"AVSandboxBaseBatteryLevelChanged";
+NSString* AVSandboxMarkersStateChanged = @"AVSandboxMarkersStateChanged";
+NSString* AVSandboxMarkerBatteryLevelChanged = @"AVSandboxMarkerBatteryLevelChanged";
