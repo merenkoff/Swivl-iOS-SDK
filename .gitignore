@@ -19,5 +19,6 @@ DerivedData
 
 #CocoaPods
 Pods
+*.lock
 Device
 Simulator
