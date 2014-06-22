@@ -8,7 +8,9 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/Swivl/Swivl-iOS-SDK.git', :tag => s.version.to_s  }
   s.source_files = 'SwivlCommonLib/**/*.{h,m}'
   s.public_header_files = 'SwivlCommonLib/**/*.h'
-  s.xcconfig = {'OTHER_LDFLAGS' => "${PODS_ROOT}/#{s.name}/Universal/libSwivlCommonLib.a"}
+  s.preserve_paths = 'Universal/libSwivlCommonLib.a'
+  s.library = 'SwivlCommonLib'
+  s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Swivl-iOS-SDK/Universal"' }
   s.requires_arc = false
   s.ios.deployment_target = '5.0'
 end
