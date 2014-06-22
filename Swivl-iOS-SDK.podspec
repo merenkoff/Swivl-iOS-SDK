@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
   s.source_files = 'SwivlCommonLib/**/*.{h,m}'
   s.public_header_files = 'SwivlCommonLib/**/*.h'
   s.xcconfig = {'OTHER_LDFLAGS' => "${PODS_ROOT}/#{s.name}/Universal/libSwivlCommonLib.a"}
-  s.resources = 'Universal/**/*.a'
   s.requires_arc = false
   s.ios.deployment_target = '5.0'
 end
