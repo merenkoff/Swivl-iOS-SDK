@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'Universal/libSwivlCommonLib.a'
   s.library = 'SwivlCommonLib'
   s.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/Swivl-iOS-SDK/Universal"' }
+  s.frameworks = 'ExternalAccessory.framework'
   s.requires_arc = false
   s.ios.deployment_target = '5.0'
 end
